@@ -12,24 +12,8 @@ namespace Examples
     {
         static void Main(string[] args)
         {
-            //
-            // Hello World client
-            //
-            // Author: metadings
-            //
 
-            if (args == null || args.Length < 1)
-            {
-                Console.WriteLine();
-                Console.WriteLine("Usage: ./{0} HWClient [Endpoint]", AppDomain.CurrentDomain.FriendlyName);
-                Console.WriteLine();
-                Console.WriteLine("    Endpoint  Where HWClient should connect to.");
-                Console.WriteLine("              Default is tcp://127.0.0.1:5555");
-                Console.WriteLine();
-                args = new string[] { "tcp://192.168.11.175:8004" };
-            }
-
-            string endpoint = args[0];
+            string endpoint = "tcp://192.168.11.175:8004";
 
             // Create
             using (var context = new ZContext())
@@ -40,6 +24,8 @@ namespace Examples
 
                 while (true)
                 {
+                    Console.WriteLine("Введите сообщение:");
+                    Console.WriteLine();
                     string message = Console.ReadLine();
 
                     // Send
